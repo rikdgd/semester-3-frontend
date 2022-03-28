@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import UserService from '../../services/UserService'
 
 
@@ -28,7 +29,9 @@ class UserList extends Component {
                             <br/>
                             <a>{user.email}</a>
                             <br/>
-                            <a className='btn btn-primary'>view</a>
+                            <nav>
+                                <Link to={user.id.toString()} className='btn btn-primary'>view</Link>
+                            </nav>
                         </div>
                     ))
                 }

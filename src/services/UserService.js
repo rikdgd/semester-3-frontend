@@ -22,7 +22,13 @@ class UserSevice {
         var url = this.baseUrl + id;
 
         try{
-            var data = axios.get(url);
+            var data; 
+            
+            axios.get(url)
+            .then(response => {
+                data = response.data
+            });
+
             return data;
         }
         catch{
