@@ -7,13 +7,18 @@ class UserPage extends Component {
         super(props);
         //this.state = {user: props.user};
         
-        const { params } = this.props.match;
+        const { params } = this.props.match.params;
         const user = UserService.GetById(params.id);
         
         this.state = {user: user};
     }
 
+
     render() { 
+        console.log(this.props);
+        const { params } = this.props.match.params;
+        const user = UserService.GetById(params.id);
+
         return ( 
             <div className='container' key={this.state.user.id}>
                 <a>{this.state.user.id}</a>

@@ -18,7 +18,7 @@ function App() {
           <Route index element={<CardList />} />
           <Route path='/card' element={<TestComponent/>} />
           <Route path='/users' element={<UserList/>} />
-          <Route path='/user:id' element={<UserPage/>} /> 
+          <Route path='/user/:id' element={<UserPage/>} /> 
           {/* <Route element={<NotFound/>} /> */}
         </Routes>
         {/* <Link to='/user/1'>click<Link/> */}
