@@ -1,20 +1,29 @@
-import React from 'react';
-import { useParams } from "react-router-dom";
+import React, { Component } from 'react';
 import UserService from '../../services/UserService';
-import '../../style/UserPage.css';
+import UserPageContainer from './UserPageContainer';
 
+class UserPage extends Component {
+    constructor(props) {
+        super(props);
 
-function UserPage(){
-    let params = useParams();
-    const user = UserService.GetById(params.userId);
-    console.log(user);
+        var userId = props.params.userId;
 
-    return(
-        <div className='container'>
-            <h4>{user.id}</h4>
-            <a>{user.email}</a>
-        </div>
-    );
+        UserService.GetById(userId).then((response) => {
+            this.state = {
+                user: response.data
+            }
+        })
+    }
+    
+    render() { 
+        return ( 
+            <div>
+                <a>{this.state.user.id}</a>
+                <a>{this.state.user.name}</a>
+                <a>{this.state.user.email}</a>
+            </div>
+         );
+    }
 }
  
 export default UserPage;
