@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import UserService from '../../services/UserService';
 import '../../style/CreateForm.css'
 import Button from '../GeneralComponents/Button'
 
@@ -28,7 +29,7 @@ class CreateAccountForm extends Component {
             password: this.state.password
         }
 
-        console.log(JSON.stringify(account));
+        UserService.CreateUser(account);
     }
 
     ChangeEmailHandler = (event) => {
