@@ -28,26 +28,6 @@ class UserSevice {
             return null;
         }
     }
-
-    // GetById(id){
-    //     var url = baseURL + id.toString();
-
-    //     try{
-    //         let data;
-            
-    //         axios.get(url)
-    //         .then((response) => {
-    //             console.log(response.data)
-    //             data = response.data
-    //         });
-
-    //         return data;
-    //     }
-    //     catch{
-    //         console.log('failed to get data');
-    //         return null;
-    //     }
-    // }
 }
 
 export default new UserSevice;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
-import UserService from '../../services/UserService';
 import '../../style/UserPage.css';
 import UserPage from './UserPage';
 
