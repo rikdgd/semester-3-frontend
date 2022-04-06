@@ -2,9 +2,7 @@ import axios from "axios";
 
 
 class CardService {
-    constructor(){
-        
-    }
+
     GetRandomCardCollection(){
         var url = 'http://localhost:8080/api/v1/allCards';
 
@@ -31,4 +29,4 @@ class CardService {
     }
 }
 
-export default new CardService;
+export default new CardService();

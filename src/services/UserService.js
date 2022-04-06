@@ -44,4 +44,4 @@ class UserSevice {
     }
 }
 
-export default new UserSevice;
+export default new UserSevice();
