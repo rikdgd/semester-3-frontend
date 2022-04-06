@@ -1,15 +1,14 @@
 import axios from "axios";
 
 
-class UserSevice {
-    constructor(){
-        this.baseUrl = 'http://localhost:8080/api/v1/users/';
-    }
+const baseURL = 'http://localhost:8080/api/v1/users/';
 
+
+class UserSevice {
 
     GetAllUsers(){
         try{
-            var data = axios.get(this.baseUrl);
+            var data = axios.get(baseURL)
             return data;
         }
         catch{
@@ -19,16 +18,29 @@ class UserSevice {
     }
 
     GetById(id){
-        var url = this.baseUrl + id;
+        var url = baseURL + id.toString();
 
         try{
-            var data = axios.get(url);
-            return data;
+            return axios.get(url);
         }
         catch{
             console.log('failed to get data');
             return null;
         }
+    }
+
+    CreateUser(user){
+        axios.post('http://localhost:8080/api/v1/create_account', {
+            name: user.username,
+            email: user.email,
+            password: user.password
+        })
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
 }
 

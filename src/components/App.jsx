@@ -5,8 +5,8 @@ import CardList from './Cards/CardList';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import TestComponent from './TestComponent';
 import UserList from './Users/UserList';
-import UserPage from './Users/UserPage';
-import NotFound from './NotFound';
+import UserPageContainer from './Users/UserPageContainer';
+import CreateAccountForm from './Users/CreateAccountForm';
 
 
 function App() {
@@ -16,14 +16,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<CardList />} />
-          <Route path='/card' element={<TestComponent/>} />
-          <Route path='/users' element={<UserList/>} />
-          <Route path='/user:id' element={<UserPage/>} /> 
-          {/* <Route element={<NotFound/>} /> */}
+          <Route path='card' element={<TestComponent/>} />
+          <Route path='users' element={<UserList/>}/>
+          <Route path='users/:userId' element={<UserPageContainer/>}/> 
+          <Route path='create_account' element={<CreateAccountForm/>}/>         
         </Routes>
-        {/* <Link to='/user/1'>click<Link/> */}
       </BrowserRouter>
-      
     </div>
   );
 }

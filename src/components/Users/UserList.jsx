@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import UserPage from './UserPage';
+import { Link } from 'react-router-dom';
 import UserService from '../../services/UserService'
-import { BrowserRouter, Route } from 'react-router-dom'
 
 
 class UserList extends Component {
@@ -14,20 +13,28 @@ class UserList extends Component {
         })
     }
 
-    GetUserRoute(id){
-        return '/user/' + id;
-    }
+    // GetUserRoute(id){
+    //     return '/user/' + id;
+    // }
 
     render() { 
         return ( 
             <div>
-                <BrowserRouter>
                 {
                     this.state.users.map((user) => (
-                        <Route path={this.GetUserRoute(user.id)} element={<UserPage/>}>click</Route>
+                        <div className='container' key={user.id}>
+                            <a>{user.id}</a>
+                            <br/>
+                            <a>{user.name}</a>
+                            <br/>
+                            <a>{user.email}</a>
+                            <br/>
+                            <nav>
+                                <Link to={user.id.toString()} className='btn btn-primary'>view</Link>
+                            </nav>
+                        </div>
                     ))
                 }
-                </BrowserRouter>
             </div>
          );
     }

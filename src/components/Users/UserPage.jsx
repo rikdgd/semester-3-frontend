@@ -1,27 +1,29 @@
 import React, { Component } from 'react';
 import UserService from '../../services/UserService';
-import '../../style/UserPage.css'
 
 class UserPage extends Component {
-    constructor(props){
+
+    constructor(props) {
         super(props);
-        //this.state = {user: props.user};
-        
-        const { params } = this.props.match;
-        const user = UserService.GetById(params.id);
-        
-        this.state = {user: user};
+        this.state = {user: ''}
     }
 
+    componentDidMount(){
+        var userId = this.props.userId;
+
+        UserService.GetById(userId).then((response) => {
+            this.setState({user: response.data});
+            console.log(this.state.user);
+        });
+    }
+    
     render() { 
         return ( 
-            <div className='container' key={this.state.user.id}>
-                <a>{this.state.user.id}</a>
-                <br/>
-                <a>{this.state.user.name}</a>
-                <br/>
-                <a>{this.state.user.email}</a>
-                <br/>
+            <div className='container'>
+                <div className='profile-container'>
+                    <p>{this.state.user.name}</p>
+                    <p>{this.state.user.email}</p>
+                </div>
             </div>
          );
     }
