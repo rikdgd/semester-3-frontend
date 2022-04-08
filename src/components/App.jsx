@@ -2,7 +2,7 @@ import '../style/App.css'
 import React from 'react';
 import Header from './Header';
 import CardList from './Cards/CardList';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import TestComponent from './TestComponent';
 import UserList from './Users/UserList';
 import UserPageContainer from './Users/UserPageContainer';
@@ -11,9 +11,9 @@ import CreateAccountForm from './Users/CreateAccountForm';
 
 function App() {
   return (
-    <div className='AppContainer'>
-      <Header />
-      <BrowserRouter>
+    <Router>
+      <div className='AppContainer'>
+        <Header/>
         <Routes>
           <Route index element={<CardList />} />
           <Route path='card' element={<TestComponent/>} />
@@ -21,8 +21,8 @@ function App() {
           <Route path='users/:userId' element={<UserPageContainer/>}/> 
           <Route path='create_account' element={<CreateAccountForm/>}/>         
         </Routes>
-      </BrowserRouter>
-    </div>
+      </div>
+    </Router>
   );
 }
 
