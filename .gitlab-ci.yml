@@ -22,9 +22,9 @@ test_async:
     - npm install
     - node ./specs/start.js ./specs/async.spec.js
 
-test_db:
-  tags:
-    - pokemonFront
-  script:
-    - npm install
-    - node ./specs/start.js ./specs/db-postgres.spec.js
+# test_db:
+#   tags:
+#     - pokemonFront
+#   script:
+#     - npm install
+#     - node ./specs/start.js ./specs/db-postgres.spec.js
