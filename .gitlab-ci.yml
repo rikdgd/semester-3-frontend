@@ -24,7 +24,7 @@ test_async:
 
 test_db:
   tags:
-    -pokemonFront
+    - pokemonFront
   script:
     - npm install
     - node ./specs/start.js ./specs/db-postgres.spec.js
