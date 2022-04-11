@@ -12,7 +12,7 @@ class Button extends Component {
     }
     render() { 
         return ( 
-            <button className='btn default-button' onClick={this.state.onClick}>{this.state.text}</button>
+            <a className='btn default-button' onClick={this.state.onClick}>{this.state.text}</a>
          );
     }
 }
