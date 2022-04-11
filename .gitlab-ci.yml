@@ -5,7 +5,7 @@ cache:
   paths:
     - node_modules/
 
-test_async:
+test_build:
   tags:
     - pokemonFront
   script:
