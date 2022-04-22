@@ -47,7 +47,7 @@ class CreateAccountForm extends Component {
     render() { 
         return ( 
             <div className='container form-container'>
-                <h3 className='text-center'>Create user</h3>
+                <h3 className='text-center'>Register</h3>
                 <form>
                     <input type='text' className='form-control form-textfield' value={this.state.email} onChange={this.ChangeEmailHandler} placeholder='email'></input>
                     <input type='text' className='form-control form-textfield' value={this.state.username} onChange={this.ChangeUsernameHandler} placeholder='username'></input>
