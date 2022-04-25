@@ -20,8 +20,8 @@ const Header = () => {
                     <SearchBar/>
 
                     <div className='text-end'>
-                        <button className='btn btn-outline-light me-2 headbtn'>Login</button>
-                        <button className='btn btn-outline-light headbtn'>Register</button>
+                        <a className='btn btn-outline-light me-2 headbtn' href="/">Login</a>
+                        <a className='btn btn-outline-light headbtn' href="/create_account">Register</a>
                     </div>
                 </div>
             </div>
