@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import '../style/Header.css'
 
+
 class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
     state = {  }
     render() { 
         return ( 
@@ -23,8 +21,8 @@ class Header extends Component {
                         <SearchBar />
 
                         <div className='text-end'>
-                            <button className='btn btn-outline-light me-2 headbtn'>Login</button>
-                            <button className='btn btn-outline-light headbtn'>Register</button>
+                            <a className='btn btn-outline-light me-2 headbtn' href='/login'>Login</a>
+                            <a className='btn btn-outline-light headbtn' href='/create_account'>Register</a>
                         </div>
                     </div>
                 </div>
