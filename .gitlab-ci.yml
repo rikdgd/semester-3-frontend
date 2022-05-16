@@ -1,13 +1,26 @@
-image: rikdegoede/pokemon-front
-
+image: node:16
 
 cache:
   paths:
     - node_modules/
 
-test_build:
+stages:
+  - dockerize
+
+dockeriz_job:
+  image: docker:latest
+  stage: dockerize
   tags:
-    - pokemonFront
+    - docker
+
+  services:
+    - docker:dind
+
+  before_script:
+    - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  
   script:
-    - npm install
-    - npm run build
+    - echo "start building container..."
+    - docker build -t rikdegoede/pokemon-card-market-front
+    - echo "pushing container..."
+    - docker push rikdegoede/pokemon-card-market-front
