@@ -21,6 +21,6 @@ dockeriz_job:
   
   script:
     - echo "start building container..."
-    - docker build -t rikdegoede/pokemon-card-market-front
+    - docker build -t rikdegoede/pokemon-card-market-front .
     - echo "pushing container..."
     - docker push rikdegoede/pokemon-card-market-front
