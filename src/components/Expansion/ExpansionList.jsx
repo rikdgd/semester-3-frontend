@@ -1,34 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ExpansionService from '../../services/ExpansionService';
 
-const ExpansionList = () => {
+class ExpansionList extends Component {
 
-    const [expansions, setExpansion] = React.useState();
+    state = { 
+        expansions: []
+     }
 
-    ExpansionService.GetAllExpansions().then((result) => {
-        setExpansion(result.data);
-    })
+     componentDidMount(){
+        ExpansionService.GetAllExpansions().then((result) => {
+            this.setState({expansions: result.data});
+        });
+     }
 
-
-    return(
-        <div>
-            {
-                expansions.map((expansion) => (
-                    <div className='container' key={expansion.id}>
-                        <a>{expansion.name}</a>
-                        <br/>
-                        <a>{expansion.releaseDate}</a>
-                        <br/>
-                        <a>{expansion.id}</a>
-                        <br/>
-                        {/* <nav>
-                            <Link to={user.id.toString()} className='btn btn-primary'>view</Link>
-                        </nav> */}
-                    </div>
-                ))
-            }
-        </div>
-    );
+    render() { 
+        return ( 
+            <div>
+                {
+                    this.state.expansions.map((expansion) => (
+                        <div className='container' key={expansion.id}>
+                            <a>{expansion.id}</a>
+                            <br/>
+                            <a>{expansion.name}</a>
+                            <br/>
+                            <a>{expansion.releaseDate}</a>
+                        </div>
+                    ))
+                }
+            </div>
+         );
+    }
 }
-
+ 
 export default ExpansionList;

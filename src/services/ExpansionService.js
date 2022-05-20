@@ -5,7 +5,7 @@ class ExpansionService {
 
     GetAllExpansions(){
         try{
-            var data = axios.get(this.baseURL + '/allExpansions');
+            var data = axios.get(this.baseURL + 'allExpansions');
             return data;
         }
         catch(ex){
