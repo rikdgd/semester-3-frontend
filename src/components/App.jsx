@@ -7,6 +7,7 @@ import TestComponent from './TestComponent';
 import UserList from './Users/UserList';
 import UserPageContainer from './Users/UserPageContainer';
 import CreateAccountForm from './Users/CreateAccountForm';
+import ExpansionList from './Expansion/ExpansionList';
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
           <Route path='card' element={<TestComponent/>} />
           <Route path='users' element={<UserList/>}/>
           <Route path='users/:userId' element={<UserPageContainer/>}/> 
-          <Route path='create_account' element={<CreateAccountForm/>}/>         
+          <Route path='create_account' element={<CreateAccountForm/>}/>   
+          <Route path='expansions' element={<ExpansionList/>}/>      
         </Routes>
       </div>
     </Router>

@@ -14,7 +14,8 @@ const Header = () => {
                     <ul className='nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0'>
                         <li><Link to='/' className='nav-link px-2 text-lpurple'>Home</Link></li>
                         <li><Link to='/cards' className='nav-link px-2 text-lpurple'>Market</Link></li>
-                        <li><Link to='/users' className='nav-link px-2 text-lpurple'>My collection</Link></li>
+                        <li><Link to='/users' className='nav-link px-2 text-lpurple'>Users</Link></li>
+                        <li><Link to='/expansions' className='nav-link px-2 text-lpurple'>expansions</Link></li>
                     </ul>
 
                     <SearchBar/>
