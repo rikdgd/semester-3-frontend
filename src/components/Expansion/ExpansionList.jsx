@@ -19,11 +19,14 @@ class ExpansionList extends Component {
                 {
                     this.state.expansions.map((expansion) => (
                         <div className='container' key={expansion.id}>
-                            <a>{expansion.id}</a>
-                            <br/>
-                            <a>{expansion.name}</a>
-                            <br/>
-                            <a>{expansion.releaseDate}</a>
+                            <p>{expansion.id}</p>
+                            <p>{expansion.name}</p>
+                            <p>{expansion.releaseDate}</p>
+                            {
+                                expansion.cards.map((card) => (
+                                    <p key={card.id}>---{card.name}---</p>
+                                ))
+                            }
                         </div>
                     ))
                 }
