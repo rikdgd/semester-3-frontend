@@ -20,7 +20,7 @@ dockeriz_job:
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   
   script:
-    - echo "start building container..."
+    - echo "start building image..."
     - docker build -t rikdegoede/pokemon-card-market-front .
     - echo "pushing container..."
     - docker push rikdegoede/pokemon-card-market-front
