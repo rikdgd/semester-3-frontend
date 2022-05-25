@@ -5,11 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "firefox",
+            "name": "Debug tests",
             "request": "launch",
-            "name": "Launch firefox against localhost",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
+            "type": "firefox",
+            "file": "${workspaceFolder}/src/Tests/header.test.js"
         }
     ]
 }
