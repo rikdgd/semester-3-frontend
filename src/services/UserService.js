@@ -42,6 +42,17 @@ class UserSevice {
             console.log(error);
         })
     }
+
+    CheckLogin(username, password){
+        try{
+            let userId = axios.get('http://localhost:8080/api/v1/login/' + username.toString() + '/' + password.toString());
+            return userId;
+        }        
+        catch (ex){
+            console.log(ex);
+            return null;
+        }
+    }
 }
 
 export default new UserSevice();
