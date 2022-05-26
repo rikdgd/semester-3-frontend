@@ -1,19 +1,26 @@
 import React from 'react';
 import UserService from '../../services/UserService';
 import AppUrls from '../../AppUrls.json';
+import SessionHandler from '../../SessionHandler';
 
 const LoginForm = () => {
 
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
 
+    const [userId, setUserId] = React.useState();
+
     function tryLogin(e) {
         e.preventDefault();
 
-        const loginSucces = UserService.TryLogin(username, password)
+        UserService.TryLogin(username, password).then((response) => {
+            setUserId(response.data);
+            console.log(response.data);
+        });
 
-        if (loginSucces){
+        if (userId > 0){
             //login succesful, redirect
+            SessionHandler.SetUserId(userId);
             window.location.assign(AppUrls["homepage"]);
         }
         else{
@@ -38,7 +45,7 @@ const LoginForm = () => {
                 <label for='pw'>password: </label>
                 <input type='text' name='pw' id='pw' onChange={ChangePasswordHandler}></input>
             </form>
-            <button onClick={tryLogin}>login</button>    
+            <button className='btn btn-primary' onClick={tryLogin}>login</button>    
         </div>
     );
 }

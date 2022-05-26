@@ -1,5 +1,4 @@
 import axios from "axios";
-import SessionHandler from '../SessionHandler';
 
 
 const baseURL = 'http://localhost:8080/api/v1/users/';
@@ -52,15 +51,7 @@ class UserSevice {
      */
     TryLogin(username, password){
         const url = 'http://localhost:8080/api/v1/login/' + username + '/' + password;
-        var userId = axios.get(url);
-        
-        // login failed
-        if(userId === -1){
-            return false;
-        }
-
-        SessionHandler.SetUserId(userId);
-        return true;
+        return axios.get(url);;
     }
 }
 
