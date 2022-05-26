@@ -1,30 +1,32 @@
 import React from 'react';
 import UserService from '../../services/UserService';
+import AppUrls from '../../AppUrls.json';
 
 const LoginForm = () => {
 
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
 
-    tryLogin = (e) => {
+    function tryLogin(e) {
         e.preventDefault();
 
         const loginSucces = UserService.TryLogin(username, password)
 
         if (loginSucces){
-            //login succesful, add id to session and redirect
+            //login succesful, redirect
+            window.location.assign(AppUrls["homepage"]);
         }
         else{
-            // login failed
+            window.alert('login failed');
         }
 
     }
 
-    ChangeNameHandler = (event) => {
+    function ChangeNameHandler(event) {
         setUsername(event.target.value);
     }
 
-    ChangePasswordHandler = (event) => {
+    function ChangePasswordHandler(event) {
         setPassword(event.target.value);
     }
 
@@ -32,10 +34,11 @@ const LoginForm = () => {
         <div className='container'>
             <form>
                 <label for='uname'>username: </label>
-                <input type='text' name='uname' id='uname'></input>
+                <input type='text' name='uname' id='uname' onChange={ChangeNameHandler}></input>
                 <label for='pw'>password: </label>
-                <input type='text' name='pw' id='pw'></input>
+                <input type='text' name='pw' id='pw' onChange={ChangePasswordHandler}></input>
             </form>
+            <button onClick={tryLogin}>login</button>    
         </div>
     );
 }
