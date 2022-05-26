@@ -9,13 +9,13 @@ const LoginForm = () => {
     tryLogin = (e) => {
         e.preventDefault();
 
-        const userId = UserService.CheckLogin(username, password)
+        const loginSucces = UserService.TryLogin(username, password)
 
-        if (userId == null){
-            //login failed
+        if (loginSucces){
+            //login succesful, add id to session and redirect
         }
         else{
-            //login succesful, add id to session and redirect
+            // login failed
         }
 
     }

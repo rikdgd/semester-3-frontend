@@ -1,4 +1,5 @@
 import axios from "axios";
+import SessionHandler from '../SessionHandler';
 
 
 const baseURL = 'http://localhost:8080/api/v1/users/';
@@ -43,14 +44,21 @@ class UserSevice {
         })
     }
 
-    CheckLogin(username, password){
+    /**
+     * Tries to login the user with the given username and password.
+     * @param {*} username 
+     * @param {*} password 
+     * @returns true when login was succesfull.
+     */
+    TryLogin(username, password){
         try{
             let userId = axios.get('http://localhost:8080/api/v1/login/' + username.toString() + '/' + password.toString());
-            return userId;
+            SessionHandler.SetUserId(userId);
+            return true;
         }        
         catch (ex){
             console.log(ex);
-            return null;
+            return false;
         }
     }
 }
