@@ -51,10 +51,11 @@ class UserSevice {
      * @returns true when login was succesfull.
      */
     TryLogin(username, password){
-        let userId = axios.get('http://localhost:8080/api/v1/login/' + username.toString() + '/' + password.toString());
+        const url = 'http://localhost:8080/api/v1/login/' + username + '/' + password;
+        var userId = axios.get(url);
         
         // login failed
-        if(userId == -1){
+        if(userId === -1){
             return false;
         }
 
