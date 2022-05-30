@@ -8,14 +8,15 @@ const LoginForm = () => {
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
 
-    const [userId, setUserId] = React.useState();
+    let userId;
 
-    function tryLogin(e) {
+    async function tryLogin(e) {
+
         e.preventDefault();
 
-        UserService.TryLogin(username, password).then((response) => {
-            setUserId(response.data);
-            console.log(response.data);
+        await UserService.TryLogin(username, password).then((response) => {
+            userId = response.data;
+            console.log('resp: ' + response.data);
         });
 
         if (userId > 0){
@@ -26,7 +27,6 @@ const LoginForm = () => {
         else{
             window.alert('login failed');
         }
-
     }
 
     function ChangeNameHandler(event) {
