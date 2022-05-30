@@ -45,7 +45,7 @@ const LoginForm = () => {
                 <label for='pw'>password: </label>
                 <input type='text' name='pw' id='pw' onChange={ChangePasswordHandler}></input>
             </form>
-            <button className='btn btn-primary' onClick={tryLogin}>login</button>    
+            <button className='btn btn-primary' onClick={tryLogin} id='loginbtn'>login</button>    
         </div>
     );
 }
