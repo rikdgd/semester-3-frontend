@@ -1,16 +1,33 @@
+import React from 'react';
 import SockJsClient from 'react-stomp';
 
-<SockJsClient url='http://localhost:8080/websocket-chat/'
-   topics={['/topic/user']}
-   onConnect={() => {
-       console.log("connected");
-   }}
-   onDisconnect={() => {
-       console.log("Disconnected");
-   }}
-   onMessage={(msg) => {
-       console.log(msg);
-   }}
-   ref={(client) => {
-       this.clientRef = client
-}}/>
+const SOCKET_URL = 'http://localhost:8080/websocket-chat';
+
+const SocketView = () => {
+
+    const [message, setMessage] = React.useState('wait for message...');
+
+    let onConnected = () => {
+        console.log("Connected!!");
+      }
+    
+      let onMessageReceived = (msg) => {
+        setMessage(msg.message);
+      }
+
+    return ( 
+        <div>
+            <SockJsClient
+                url={SOCKET_URL}
+                topics={['/topic/message']}
+                onConnect={onConnected}
+                onDisconnect={console.log("Disconnected!")}
+                onMessage={msg => onMessageReceived(msg)}
+                debug={false}
+            />
+            <div>{message}</div>
+        </div>
+     );
+}
+ 
+export default SocketView;
