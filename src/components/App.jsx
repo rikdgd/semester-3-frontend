@@ -8,6 +8,7 @@ import UserList from './Users/UserList';
 import UserPageContainer from './Users/UserPageContainer';
 import CreateAccountForm from './Users/CreateAccountForm';
 import ExpansionList from './Expansion/ExpansionList';
+import ChatRoom from './ChatRoom';
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
           <Route path='users' element={<UserList/>}/>
           <Route path='users/:userId' element={<UserPageContainer/>}/> 
           <Route path='create_account' element={<CreateAccountForm/>}/>   
-          <Route path='expansions' element={<ExpansionList/>}/>      
+          <Route path='expansions' element={<ExpansionList/>}/> 
+          <Route path='chatroom' element={<ChatRoom/>}/>     
         </Routes>
       </div>
     </Router>
