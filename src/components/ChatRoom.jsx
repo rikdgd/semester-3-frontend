@@ -25,7 +25,7 @@ const ChatRoom = () => {
         let Sock = new SockJS('http://localhost:8080/ws');
 
         // use the sockjs connection to create a stomp client
-        var stompClient = over(Sock);
+        stompClient = over(Sock);
         stompClient.connect({}, onConnected, onError);
     }
 
