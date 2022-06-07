@@ -42,6 +42,6 @@
     ]
   },
   "devDependencies": {
-    "puppeteer": "^14.1.1"
+    "cypress": "^10.0.3"
   }
 }
