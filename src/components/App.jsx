@@ -9,6 +9,7 @@ import UserPageContainer from './Users/UserPageContainer';
 import CreateAccountForm from './Users/CreateAccountForm';
 import ExpansionList from './Expansion/ExpansionList';
 import ChatRoom from './ChatRoom';
+import LoginForm from './Users/LoginForm';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='card' element={<TestComponent/>} />
           <Route path='users' element={<UserList/>}/>
           <Route path='users/:userId' element={<UserPageContainer/>}/> 
+          <Route path='login' element={<LoginForm/>}/>
           <Route path='create_account' element={<CreateAccountForm/>}/>   
           <Route path='expansions' element={<ExpansionList/>}/> 
           <Route path='chatroom' element={<ChatRoom/>}/>     
