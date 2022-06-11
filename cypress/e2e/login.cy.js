@@ -25,7 +25,9 @@ describe('Login Test', () => {
     cy.get('#pw').type(correctPassword, { delay: 50 });
     cy.get('#loginbtn').click();
 
-    // check if userid is stored in session
+    // Check if userid is stored in session.
+    // Does not always pass within first 10mins of app startup,
+    // have not been able to figure out why.
     expect(SessionHandler.GetUserId()).to.not.be.null
   })
 })
