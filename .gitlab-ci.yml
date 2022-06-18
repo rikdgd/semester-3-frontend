@@ -18,7 +18,7 @@ build_job:
   script: 
     - echo "start building app"
     - npm install
-    - npm start
+    - npm build
     - echo "build succesfull"
 
 test_job: 
