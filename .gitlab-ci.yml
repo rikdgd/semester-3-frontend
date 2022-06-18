@@ -5,7 +5,32 @@ cache:
     - node_modules/
 
 stages:
+  - build
+  - test
   - dockerize
+
+build_job: 
+  image: node
+  stage: build
+  tags:
+    - pokemonFront
+  
+  script: 
+    - echo "start building app"
+    - npm install
+    - npm build
+    - echo "build succesfull"
+
+test_job: 
+  image: node
+  stage: test
+  tags:
+    - pokemonFront
+  script:
+    - echo "test app"
+    - npm install
+    - npm test
+    - echo "tests succesfull"
 
 dockeriz_job:
   image: docker:latest
