@@ -42,6 +42,17 @@ class UserSevice {
             console.log(error);
         })
     }
+
+    /**
+     * Tries to login the user with the given username and password.
+     * @param {*} username 
+     * @param {*} password 
+     * @returns true when login was succesfull.
+     */
+    TryLogin(username, password){
+        const url = 'http://localhost:8080/api/v1/login/' + username + '/' + password;
+        return axios.get(url);;
+    }
 }
 
 export default new UserSevice();

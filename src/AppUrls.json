@@ -1,0 +1,7 @@
+{
+   "homepage": "http://localhost:3000/",
+   "cardlist": "http://localhost:3000/cards",
+   "userlist": "http://localhost:3000/cards",
+   "createaccount": "http://localhost:3000/create_account",
+   "expansionlist": "http://localhost:3000/expansions"
+}
