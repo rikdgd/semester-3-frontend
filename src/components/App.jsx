@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route index element={<CardList />} />
           <Route path='card' element={<TestComponent/>} />
-          <Route path='users/:userId' element={<UserPageContainer/>}/> 
+          <Route path='users' element={<UserPageContainer/>}/> 
           <Route path='login' element={<LoginForm/>}/>
           <Route path='create_account' element={<CreateAccountForm/>}/>   
           <Route path='chatroom' element={<ChatRoom/>}/>   

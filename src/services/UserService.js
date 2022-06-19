@@ -41,6 +41,9 @@ class UserSevice {
         .catch((error) => {
             console.log(error);
         })
+
+        // create user's collecion
+        axios.post('http://localhost:8080/api/v1/create_collection_by_name/' + user.username);
     }
 
 
