@@ -8,16 +8,17 @@ const LoginForm = () => {
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
 
-    let userId;
 
     async function tryLogin(e) {
 
         e.preventDefault();
+        let userId;
 
         await UserService.TryLogin(username, password).then((response) => {
             userId = response.data;
             console.log('resp: ' + response.data);
         });
+
 
         if (userId > 0){
             //login succesful, redirect
