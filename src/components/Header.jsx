@@ -2,9 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from './SearchBar'
 import '../style/Header.css'
+import SessionHandler from '../SessionHandler';
 
 
 const Header = () => {
+
+    const myAccountUrl = '/users/' + SessionHandler.GetUserId();
+
     return(
         <header className='p-3 text-white' id='header'>
             <div className='container'>
@@ -13,8 +17,9 @@ const Header = () => {
 
                     <ul className='nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0' id='header-list'>
                         <li><Link to='/' id="home-link" className='nav-link px-2 text-lpurple'>Home</Link></li>
-                        <li><Link to='/cards' id="market-link" className='nav-link px-2 text-lpurple'>Market</Link></li>
-                        <li><Link to='/users' id="collection-link" className='nav-link px-2 text-lpurple'>My collection</Link></li>
+                        <li><Link to='/collection' id="collection-link" className='nav-link px-2 text-lpurple'>My collection</Link></li>
+                        <li><Link to={myAccountUrl} id="collection-link" className='nav-link px-2 text-lpurple'>My account</Link></li>
+                        <li><Link to='/chatroom' id="collection-link" className='nav-link px-2 text-lpurple'>Chatroom</Link></li>
                     </ul>
 
                     <SearchBar/>
